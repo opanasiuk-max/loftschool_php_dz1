@@ -153,18 +153,10 @@ $arr= explode(" ", $str);
 echo "<pre>";
 print_r($arr);
 
-//$newArr=array_reverse($arr);
-//$k=count($arr)
-//while ($k>0){
-//    $newArr[key]
-//
-//}
+
   $end = end($arr);
   While ($end)
   {
       echo $end.'_';
       $end = prev($arr);
   }
-
-//Затем используя циклы while или do-while (на ваше усмотрение) развернуть массив и склеить в строку используя любой символ, кроме пробела.
-//Вывести результат.
