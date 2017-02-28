@@ -62,12 +62,23 @@ $age=rand(0, 100);
 echo $age;
 
 
-if ($age>=18 and $age<65){
-    echo "<h4>Вам   еще работать   и   работать</h4>";
-} elseif ($age>=65){
-    echo "<h4>Вам   пора   на   пенсию</h4>";
-} elseif ($age<18 and $age>=1){echo "<h4>Вам   ещё   рано   работать</h4>";
-} else {echo "<h4>Неизвестный   возраст</h4>";}
+if ($age>=18 and $age<65)
+    {
+        echo "<h4>Вам   еще работать   и   работать</h4>";
+    }
+
+elseif ($age>=65)
+    {
+        echo "<h4>Вам   пора   на   пенсию</h4>";
+    }
+elseif ($age<18 and $age>=1)
+    {
+        echo "<h4>Вам   ещё   рано   работать</h4>";
+    }
+else
+    {
+        echo "<h4>Неизвестный   возраст</h4>";
+    }
 
 //Задание #5
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,51 +87,29 @@ $day=rand(1,10);
 echo $day."<br>";
 
 switch ($day){
-    case 1: echo "Это рабочий день";
+    case ($day<=5): echo "Это рабочий день";
         break;
-    case 2: echo "Это рабочий день";
-        break;
-    case 3: echo "Это рабочий день";
-        break;
-    case 4: echo "Это рабочий день";
-        break;
-    case 5: echo "Это рабочий день";
-        break;
-    case 6: echo "Это выходной день";
-        break;
-    case 7: echo "Это выходной день";
+    case ($day<=7): echo "Это выходной день";
         break;
     default: echo "Это неизвестный день";
         break;
-
-
 }
 
 //Задание #6
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "<h2>Задание #6</h2>";
 
-$bmw=['model'=>'X5', 'speed'=>'120', 'doors'=>'5', 'years'=>'2005'];
-$toyota=['model'=>'Corolla', 'speed'=>'100', 'doors'=>'4', 'years'=>'2006'];
-$opel=['model'=>'Astra', 'speed'=>'110', 'doors'=>'3', 'years'=>'2004'];
+$bmw=['manuf'=>'bmw', 'model'=>'X5', 'speed'=>'120', 'doors'=>'5', 'years'=>'2005'];
+$toyota=['manuf'=>'toyota', 'model'=>'Corolla', 'speed'=>'100', 'doors'=>'4', 'years'=>'2006'];
+$opel=['manuf'=>'opel', 'model'=>'Astra', 'speed'=>'110', 'doors'=>'3', 'years'=>'2004'];
 
 $CAR=[$bmw, $toyota, $opel];
 
+for ($q=0; $q<count($CAR); $q++){
+    echo $CAR[$q]["manuf"].":".'<br>';
 
-
-echo "CAR BMW:<br>";
-
-print_r($CAR[0]["model"]." : ".$CAR[0]["speed"]." : ".$CAR[0]["doors"]." : ".$CAR[0]["years"]);
-
-echo "<br><br>CAR TOYOTA:<br>";
-
-print_r($CAR[1]["model"]." : ".$CAR[1]["speed"]." : ".$CAR[1]["doors"]." : ".$CAR[1]["years"]);
-
-echo "<br><br>CAR TOYOTA:<br>";
-
-print_r($CAR[2]["model"]." : ".$CAR[2]["speed"]." : ".$CAR[2]["doors"]." : ".$CAR[2]["years"]);
-
-
+    print_r($CAR[$q]["model"]." : ".$CAR[$q]["speed"]." : ".$CAR[$q]["doors"]." : ".$CAR[$q]["years"]."<br>");
+}
 
 //Задание #7
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,10 +142,14 @@ $arr= explode(" ", $str);
 echo "<pre>";
 print_r($arr);
 
+$pos=count($arr)-1;
+$newArr=[];
+do
+    {
+    array_push($newArr, $arr[$pos]);
 
-  $end = end($arr);
-  While ($end)
-  {
-      echo $end.'_';
-      $end = prev($arr);
-  }
+        $pos--;
+    } while ($pos>=0);
+print_r ($newArr);
+
+
